@@ -1,0 +1,84 @@
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  transform: rotateY(180deg) translateZ(1px);
+  transition: opacity 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.back > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 100%;
+  overflow: auto;
+}
+
+.back__conclusion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.back > div::-webkit-scrollbar {
+  display: none;
+}
+
+.back h1 {
+  font-family: var(--title);
+  font-size: calc(var(--base-size) * 1.2);
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--dark-text);
+  border-top: 2px solid var(--dark-text);
+  border-bottom: 2px solid var(--dark-text);
+  display: inline-block;
+  padding: calc(var(--baseline) / 2) calc(var(--baseline) / 5);
+  margin-bottom: 20px;
+}
+
+.back p {
+  font-family: var(--title);
+  font-size: 12px;
+  font-style: italic;
+  text-align: justify;
+  width: 100%;
+  padding: 10px 20px;
+  font-weight: 600;
+}
+
+.back__checks {
+  width: 100%;
+  padding: 10px 20px;
+}
+
+.back__checks h2 {
+  font-family: var(-title);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-style: italic;
+  letter-spacing: 3px;
+  color: var(--dark-text);
+}
+
+.back__checks ol {
+  font-family: var(--title);
+  font-size: 12px;
+  font-style: italic;
+  text-align: justify;
+  padding: 0 0 10px 10px;
+  font-weight: 600;
+}
+
+.back__checks li {
+  padding: 5px 0;
+}
+
+.back__conclusion p {
+  font-size: 24px;
+  font-weight: 900;
+  width: max-content;
+}

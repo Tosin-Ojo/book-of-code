@@ -1,38 +1,110 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: var(--body-bg);
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  overflow-x: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+.cover {
+  width: calc(var(--baseline) * 60);
+  height: calc(var(--baseline) * 47);
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.3);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.book {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  perspective: 1200px;
+}
+
+.mobile__app {
+  background-color: var(--body-bg);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+.mobile {
+  position: relative;
+  width: 500px;
+  max-width: 95vw;
+  min-height: 550px;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.3);
+}
+
+.mobile__top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile__top h1 {
+  font-family: var(--book-title);
+  font-size: calc(var(--base-size) * 3);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--dark-text);
+  margin-top: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.mobile__top h2 {
+  font-family: var(--title);
+  font-size: calc(var(--base-size) * 1.5);
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--dark-text);
+  border-top: 1px solid var(--dark-text);
+  border-bottom: 1px solid var(--dark-text);
+  display: inline-block;
+  padding: calc(var(--baseline) / 2) calc(var(--baseline) / 5);
+  margin-bottom: 40px;
+}
+
+.mobile__bottom {
+  margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile__bottom p {
+  font-family: var(--title);
+  text-transform: uppercase;
+  font-size: calc(var(--base-size) * 0.8);
+  margin-bottom: calc(var(--baseline) * 2);
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.mobile__bottom p span {
+  display: block;
+  font-size: calc(var(--base-size) * 1.2);
+  letter-spacing: 0;
+}
+
+@media only screen and (max-width: 767px) {
+  .App {
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+
+  .mobile__app {
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .mobile {
+    min-height: 620px;
   }
 }
