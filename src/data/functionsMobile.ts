@@ -1173,7 +1173,7 @@ lastThree(list);
       ],
       checks: [
         `palindrome("_eye") should return true.`,
-        `palindrome("0_0 (: /-\ :) 0-0") should return true.`,
+        `palindrome("0_0 (: /-\\ :) 0-0") should return true.`,
         `palindrome("five|\\_/|four") should return false.`,
       ],
     },
@@ -1349,54 +1349,54 @@ telephoneCheck("555-555-5555");
       ],
     },
     solution: `
-    const checkCashRegister = (price, cash, cid) => {
-      const currencyUnit = {
-        PENNY: 1, NICKEL: 5, DIME: 10, QUARTER: 25, ONE: 100, FIVE: 500, TEN: 1000, TWENTY: 2000, "ONE HUNDRED": 10000,
-      };
-    
-      let change = cash * 100 - price * 100;
-      let changeCopy = change;
-      let changeArr = [];
-      let totalCid = 0;
-      let filteredCid = cid.filter((cash) => cash[1] > 0).reverse();
-    
-      filteredCid.forEach((cash) => {
-        let curr = cash[0];
-        let currValue = cash[1] * 100;
-        totalCid += currValue;
-        let amount = 0;
-    
-        while (change >= currencyUnit[curr] && currValue > 0) {
-          change -= currencyUnit[curr];
-          currValue -= currencyUnit[curr];
-          amount += currencyUnit[curr];
-        }
-    
-        if (amount !== 0) {
-          changeArr.push([curr, amount / 100]);
-        }
-      });
-    
-      if (totalCid < changeCopy || change > 0) 
-        return {
-          status: "INSUFFICIENT_FUNDS",
-          change: [],
-        };
-    
-      if (totalCid === changeCopy && change === 0) 
-        return {
-          status: "CLOSED",
-          change: cid,
-        };
-    
-      if (totalCid > changeCopy && change === 0)
-        return {
-          status: "OPEN",
-          change: changeArr,
-        };
+const checkCashRegister = (price, cash, cid) => {
+  const currencyUnit = {
+    PENNY: 1, NICKEL: 5, DIME: 10, QUARTER: 25, ONE: 100, FIVE: 500, TEN: 1000, TWENTY: 2000, "ONE HUNDRED": 10000,
+  };
+
+  let change = cash * 100 - price * 100;
+  let changeCopy = change;
+  let changeArr = [];
+  let totalCid = 0;
+  let filteredCid = cid.filter((cash) => cash[1] > 0).reverse();
+
+  filteredCid.forEach((cash) => {
+    let curr = cash[0];
+    let currValue = cash[1] * 100;
+    totalCid += currValue;
+    let amount = 0;
+
+    while (change >= currencyUnit[curr] && currValue > 0) {
+      change -= currencyUnit[curr];
+      currValue -= currencyUnit[curr];
+      amount += currencyUnit[curr];
+    }
+
+    if (amount !== 0) {
+      changeArr.push([curr, amount / 100]);
+    }
+  });
+
+  if (totalCid < changeCopy || change > 0) 
+    return {
+      status: "INSUFFICIENT_FUNDS",
+      change: [],
     };
-    
-      checkCashRegister(19.5, 20, [ ["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100], ])
+
+  if (totalCid === changeCopy && change === 0) 
+    return {
+      status: "CLOSED",
+      change: cid,
+    };
+
+  if (totalCid > changeCopy && change === 0)
+    return {
+      status: "OPEN",
+      change: changeArr,
+    };
+};
+
+checkCashRegister(19.5, 20, [ ["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100], ])
           `,
   },
   //   {
