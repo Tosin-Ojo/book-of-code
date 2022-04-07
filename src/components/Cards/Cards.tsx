@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { obsidian } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import Flip from "../../assets/flip.svg";
+import FlipWhite from "../../assets/flip-white.svg";
 import "./Cards.css";
 
 interface Information {
@@ -78,7 +79,7 @@ const Cards: React.FC<Props> = ({ information, solution }) => {
             </SyntaxHighlighter>
             <button onClick={handleCopy}>{copy}</button>
             <div className="card__flip" onClick={flipCard}>
-              <img src={Flip} alt="flip" />
+              <img src={FlipWhite} alt="flip" />
             </div>
           </div>
         </div>
