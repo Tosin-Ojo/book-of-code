@@ -1,9 +1,8 @@
 import React from "react";
 import Cover from "./components/Cover/Cover";
 import Page from "./components/Page/Page";
-import Cards from "./components/Cards/Cards";
 import functions from "./data/functions";
-import mobileFunctions from "./data/functionsMobile";
+import Mobile from "./components/Mobile/Mobile";
 import "./App.css";
 
 const App: React.FC = () => {
@@ -59,30 +58,7 @@ const App: React.FC = () => {
         </div>
       </div>
       <div className="mobile__app">
-        <div className="mobile__top">
-          <h1 style={{ marginTop: "0.3em" }}>Book of Codes</h1>
-          <h2>Oluwatosin Ojo</h2>
-        </div>
-
-        <div>
-          {mobileFunctions.map((tasks) => (
-            <div className="mobile">
-              <Cards
-                key={tasks.task.title}
-                information={tasks.task}
-                solution={tasks.solution}
-              />
-            </div>
-          ))}
-        </div>
-
-        <div className="mobile__bottom">
-          <p>
-            compiled from
-            <span>Freecodecamp</span>
-            <span>LeetCode</span>
-          </p>
-        </div>
+        <Mobile />
       </div>
     </>
   );

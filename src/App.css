@@ -30,69 +30,6 @@
   overflow-x: hidden;
 }
 
-.mobile {
-  position: relative;
-  width: 500px;
-  max-width: 95vw;
-  min-height: 550px;
-  box-shadow: 0 0 100px rgba(0, 0, 0, 0.3);
-}
-
-.mobile__top {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.mobile__top h1 {
-  font-family: var(--book-title);
-  font-size: calc(var(--base-size) * 3);
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: var(--dark-text);
-  margin-top: 40px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.mobile__top h2 {
-  font-family: var(--title);
-  font-size: calc(var(--base-size) * 1.5);
-  font-weight: 500;
-  text-transform: uppercase;
-  color: var(--dark-text);
-  border-top: 1px solid var(--dark-text);
-  border-bottom: 1px solid var(--dark-text);
-  display: inline-block;
-  padding: calc(var(--baseline) / 2) calc(var(--baseline) / 5);
-  margin-bottom: 40px;
-}
-
-.mobile__bottom {
-  margin: 40px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.mobile__bottom p {
-  font-family: var(--title);
-  text-transform: uppercase;
-  font-size: calc(var(--base-size) * 0.8);
-  margin-bottom: calc(var(--baseline) * 2);
-  letter-spacing: 1px;
-  text-align: center;
-}
-
-.mobile__bottom p span {
-  display: block;
-  font-size: calc(var(--base-size) * 1.2);
-  letter-spacing: 0;
-}
-
 @media only screen and (max-width: 767px) {
   .App {
     display: none;
@@ -100,11 +37,5 @@
 
   .mobile__app {
     display: flex;
-  }
-}
-
-@media only screen and (max-width: 360px) {
-  .mobile {
-    min-height: 620px;
   }
 }
