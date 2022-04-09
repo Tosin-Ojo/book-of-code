@@ -1399,27 +1399,41 @@ const checkCashRegister = (price, cash, cid) => {
 checkCashRegister(19.5, 20, [ ["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100], ])
           `,
   },
-  //   {
-  //     task: {
-  //       title: "Convert to Fahrient",
-  //       instructions: [
-  //         `The formula to convert from Celsius to Fahrenheit is the temperature in Celsius times 9/5, plus 32.`,
-  //         `You are given a variable celsius representing a temperature in Celsius. Use the variable fahrenheit already defined and assign it the Fahrenheit temperature equivalent to the given Celsius temperature. Use the formula mentioned above to help convert the Celsius temperature to Fahrenheit.`,
-  //       ],
-  //       checks: [
-  //         `convertToF(0) should return a number`,
-  //         `convertToF(-10) should return a value of 14`,
-  //         `convertToF(30) should return a value of 86`,
-  //       ],
-  //     },
-  //     solution: `
-  //   const convertToF = (cel) => {
-  //     return (cel * 9) / 5 + 32;
-  //   };
+  {
+    task: {
+      title: "Sort the Cards",
+      instructions: [
+        `You will be presented with various cards in form of an array, you will be required to sort the cards from 1 to King`,
+        `The solution show be dynamic and provide expected solutions for various cards set`,
+        `Solution should contain not more that one loop, e.g for loop, while loop, filter(), sort(), etc.`,
+      ],
+      checks: [
+        `sortCards(["Jack", "King", "Queen", "queen", "king", "jack", 6, 5, 1, 8, 3]) should return an array`,
+        `sortCards(["Jack", "King", "Queen", "queen", "king", 6, 5, 1, 8, 3, "jack"]) should return an [1, 3, 5, 6, 8, 'Jack', 'Jack', 'Queen', 'Queen', 'King', 'King']`,
+        `Only one looping allowed`,
+      ],
+    },
+    solution: `
+const sortCards = (cards) => {
+  const cardsString = cards
+    .join(",")
+    .replace(/jack/gi, 10)
+    .replace(/queen/gi, 11)
+    .replace(/king/gi, 12)
+    .split(",")
+    .sort((a, b) => a - b)
+    .join(",")
+    .replace(/10/g, "Jack")
+    .replace(/11/g, "Queen")
+    .replace(/12/g, "King")
+    .split(",");
 
-  //   convertToF(30);
-  //         `,
-  //   },
+  return cardsString;
+};
+
+sortCards(["Jack", "King", "Queen", "queen", "king", 6, 5, 1, "jack", 8, 3])
+          `,
+  },
   //   {
   //     task: {
   //       title: "Convert to Fahrient",
